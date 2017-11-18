@@ -5,17 +5,54 @@
 // 참고: https://goo.gl/UqYzzm
 //////////////////////////////
 
+// 변수 선언
+var num, str, boo, arr, fun, obj;
+
+// 선언된 변수에 값(리터럴, literal)을 할당
+num = 10,
+str = '해피 데이',
+boo = true,
+arr = [1, 4, 7],  //new Array(1, 4, 7)
+fun = function () {},   //new Function()
+obj = {}; //new Object()
 
 // 1-1) 원시(Primitive) 데이터 유형
-
+//num, str, boo, null, indefined
 
 // 1-2) 참조(Reference)형 데이터 유형
-
+//arr, fun, obj
 
 // 1-3) 원시 데이터 타입, 참조형 데이터 타입 구분
 // 1-3-1) 값 복사(pass by value)
-// 1-3-2) 값 참조(pass by reference)
+//원시 데이터 유형(객체가 아님)
+//null, undefined, num, str, boo
+//값 복사란?
+//동일해보이나, 실상 복사된 다른 값
+//결국, 하나의 값을 변경했을 때 나머지 다른 값은 변화가 없다.
 
+var number_k = num;  //값(숫자 10) 복사
+console.log('number_k === num:' , number_k === num);
+
+//number_k 값 변경
+number_k += 19; // 10 + 19 = 29
+
+//변경된 이후, 각 변수에 할당된 값을 비교
+console.log('number_k === num:' , number_k === num);
+
+// 1-3-2) 값 참조(pass by reference)
+//참조 데이터 유형(객체)
+//fun, arr, obj
+// 값 참조란?
+// 동일한 데이터를 양쪽에서 참조한 경우,
+// 하나의 값을 변경하면 나머지 다른 값 또한 변경된다.
+
+// 배열 객체 참조
+var books = arr;   // 메모리에 존재하는 동일한 객체를 각 변수가 참조
+console.log('변경 전 : books === arr:', books === arr);
+
+books.unshift('Vue.js 완전 정복');
+arr.push('jQuery 완전 정복');
+console.log('변경 후 : books === arr:', books === arr);
 
 // 1-4) 자바스크립트 메모리 관리는 어떻게 하는가?
 // 참고: https://goo.gl/EWWHnZ
